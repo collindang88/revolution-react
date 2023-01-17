@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import TitleScreen from "./components/TitleScreen";
+import Game from './components/Game';
 
-function App() {
+const App = () => {
+  const [startGame, setStartGame] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="ui segment black bordered padding">
+      {startGame ? <Game /> : <TitleScreen setStartGame={setStartGame} />}
     </div>
   );
-}
+};
 
 export default App;
