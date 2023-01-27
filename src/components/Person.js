@@ -1,23 +1,26 @@
-import React, { useState }from "react";
-import "./Person.css";
+import React from "react";
+import { connect } from "react-redux";
+import { selectPerson } from "../actions";
 
-const Person = ({ name, color }) => {
-
-  const [isClicked, setIsClicked] = useState(false);
+const Person = (props) => {
+  const peopleStatusKey = props.name.toLowerCase() + "Clicked";
+  const activeClass = props.peopleStatus[peopleStatusKey]
+    ? "clicked"
+    : "unclicked";
 
   const handleClick = () => {
-    setIsClicked(!isClicked);
+    props.selectPerson(props.name);
   };
-
-  let activeClass = isClicked ? "clicked" : "unclicked";
 
   return (
     <div className="column four wide">
       <button
-        className={`ui ${chooseColor(color)} huge circular small width button ${activeClass}`}
+        className={`ui ${chooseColor(
+          props.color
+        )} huge circular small width button ${activeClass}`}
         onClick={handleClick}
       >
-        <div className="ui white">{name}</div>
+        <div className="ui white">{props.name}</div>
       </button>
     </div>
   );
@@ -34,8 +37,12 @@ const chooseColor = (color) => {
     case "split":
       return "ui button gradient";
     default:
-      console.log("not a color");
+      throw new Error("Color does not exist");
   }
 };
 
-export default Person;
+const mapStateToProps = (state) => {
+  return { peopleStatus: state.peopleStatus };
+};
+
+export default connect(mapStateToProps, { selectPerson })(Person);

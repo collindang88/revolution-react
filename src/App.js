@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import TitleScreen from "./components/TitleScreen";
-import Game from './components/Game';
+import Game from "./components/Game";
+import "./App.css";
 
 const App = () => {
-  const [startGame, setStartGame] = useState(false);
   return (
-    <div className="ui segment black bordered padding">
-      {startGame ? <Game /> : <TitleScreen setStartGame={setStartGame} />}
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<TitleScreen />} />
+          <Route path="/game" element={<Game />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };

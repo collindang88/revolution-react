@@ -3,8 +3,8 @@ import Person from "./Person";
 
 const BribeBoard = () => {
   return (
-    <div>
-      <h2 className="center">Click on your bribes!</h2>
+    <div className="bribe-board-location bribe-board">
+      <h2 className="">Select Your Bribes!</h2>
       <div className="ui container grid">
         <div className="ui row">
           <Person name="General" color="red" />
@@ -25,10 +25,10 @@ const BribeBoard = () => {
           <Person name="Mercenary" color="split" />
         </div>
       </div>
-      <h2 className="center">Round: 1</h2>
-      <h2 className="center">Support: 0</h2>
+      <h2 className="">Round: 1</h2>
+      <h2 className="">Support: 0</h2>
       <br />
-      <div className="ui container grid center">
+      <div className="ui container grid">
         <div className="ui row">
           <h2 className="column five wide">Force: 0</h2>
           <h2 className="column five wide">Blackmail: 0</h2>
