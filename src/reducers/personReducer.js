@@ -1,49 +1,109 @@
+import _ from "lodash";
+
 const INITIAL_STATE = {
-  generalClicked: false,
-  captainClicked: false,
-  innkeeperClicked: false,
-  magistrateClicked: false,
-  priestClicked: false,
-  aristocratClicked: false,
-  merchantClicked: false,
-  printerClicked: false,
-  rogueClicked: false,
-  spyClicked: false,
-  apothecaryClicked: false,
-  mercenaryClicked: false,
+  general: {
+    title: "General",
+    description: "One Support, One Force, Influence Fortress",
+    clicked: false,
+    canForce: false,
+    canBlackmail: true,
+    canGold: true,
+  },
+  captain: {
+    title: "Captain",
+    description: "One Support, One Force, Influence Harbor",
+    clicked: false,
+    canForce: false,
+    canBlackmail: true,
+    canGold: true,
+  },
+  innkeeper: {
+    title: "InnKeeper",
+    description: "Three Support, One Blackmail, Influence Tavern",
+    clicked: false,
+    canForce: true,
+    canBlackmail: false,
+    canGold: true,
+  },
+  magistrate: {
+    title: "Magistrate",
+    description: "One Support, One Blackmail, Influence Townhall",
+    clicked: false,
+    canForce: true,
+    canBlackmail: false,
+    canGold: true,
+  },
+  priest: {
+    title: "Priest",
+    description: "Six Support, Influence Cathedral",
+    clicked: false,
+    canForce: true,
+    canBlackmail: true,
+    canGold: true,
+  },
+  aristocrat: {
+    title: "Aristocrat",
+    description: "Five Support, Three Gold, Influence Plantation",
+    clicked: false,
+    canForce: true,
+    canBlackmail: true,
+    canGold: true,
+  },
+  merchant: {
+    title: "Merchant",
+    description: "Three Support, Five Gold, Influence Market",
+    clicked: false,
+    canForce: true,
+    canBlackmail: true,
+    canGold: true,
+  },
+  printer: {
+    title: "Printer",
+    description: "Ten Support",
+    clicked: false,
+    canForce: true,
+    canBlackmail: true,
+    canGold: true,
+  },
+  rogue: {
+    title: "Rogue",
+    description: "Two Blackmail",
+    clicked: false,
+    canForce: false,
+    canBlackmail: false,
+    canGold: true,
+  },
+  spy: {
+    title: "Spy",
+    description: "Replace one Influence, Cube with one of, your own",
+    clicked: false,
+    canForce: true,
+    canBlackmail: false,
+    canGold: true,
+  },
+  apothecary: {
+    title: "Apthecary",
+    description: "Swap the cubes in any, two Influence Spheres",
+    clicked: false,
+    canForce: false,
+    canBlackmail: true,
+    canGold: true,
+  },
+  mercenary: {
+    title: "Mercenary",
+    description: "Three Support, One Force",
+    clicked: false,
+    canForce: false,
+    canBlackmail: false,
+    canGold: true,
+  },
 };
 
 const personReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "SELECT_PERSON":
-      switch (action.payload) {
-        case "General":
-          return { ...state, generalClicked: !state.generalClicked };
-        case "Captain":
-          return { ...state, captainClicked: !state.captainClicked };
-        case "Innkeeper":
-          return { ...state, innkeeperClicked: !state.innkeeperClicked };
-        case "Magistrate":
-          return { ...state, magistrateClicked: !state.magistrateClicked };
-        case "Priest":
-          return { ...state, priestClicked: !state.priestClicked };
-        case "Aristocrat":
-          return { ...state, aristocratClicked: !state.aristocratClicked };
-        case "Merchant":
-          return { ...state, merchantClicked: !state.merchantClicked };
-        case "Printer":
-          return { ...state, printerClicked: !state.printerClicked };
-        case "Rogue":
-          return { ...state, rogueClicked: !state.rogueClicked };
-        case "Spy":
-          return { ...state, spyClicked: !state.spyClicked };
-        case "Apothecary":
-          return { ...state, apothecaryClicked: !state.apothecaryClicked };
-        case "Mercenary":
-          return { ...state, mercenaryClicked: !state.mercenaryClicked };
-        default:
-          throw new Error("Person does not exist on bribe board");
-      }
+      state[action.payload].clicked = !state[action.payload].clicked;
+      return _.cloneDeep(state);
     default:
       return state;
   }

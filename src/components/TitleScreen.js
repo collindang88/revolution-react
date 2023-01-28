@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 
 const TitleScreen = () => {
   return (
-    <div className="revolution-banner center">
-      <div className="title">
-        <h1 className="title-font">Revolution!</h1>
+    <div className="position-absolute trans-50-50 text-center w-50 l-50 t-50 ">
+      <div className="back-red border-5-px p-3 mb-4">
+        <h1 className="font-huge">Revolution!</h1>
       </div>
-      <div className = "ui container grid">
-        <div className = "column eight wide">
-          <Link className="ui green huge circular button centered" to="game">
-            Play
-          </Link>
-        </div>
-        <div className = "ui column eight wide">
-          <Link className="ui yellow huge circular button centered" to="rules">
-            Rules
-          </Link>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm">
+            <Link className="btn btn-success btn-lg" to="game">
+              Play
+            </Link>
+          </div>
+          <div className="col-sm">
+            <Link className="btn btn-warning btn-lg" to="rules">
+              Rules
+            </Link>
+          </div>
         </div>
       </div>
     </div>

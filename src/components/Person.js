@@ -2,47 +2,40 @@ import React from "react";
 import { connect } from "react-redux";
 import { selectPerson } from "../actions";
 
-const Person = (props) => {
-  const peopleStatusKey = props.name.toLowerCase() + "Clicked";
-  const activeClass = props.peopleStatus[peopleStatusKey]
+const Person = ({ role, people, selectPerson }) => {
+  const person = people[role];
+  const isClicked = person.clicked
     ? "clicked"
     : "unclicked";
 
-  const handleClick = () => {
-    props.selectPerson(props.name);
+  const onPersonClick = () => {
+    selectPerson(person);
   };
 
   return (
     <div className="column four wide">
-      <button
-        className={`ui ${chooseColor(
-          props.color
-        )} huge circular small width button ${activeClass}`}
-        onClick={handleClick}
+      <div
+        className={`${chooseColor(
+          person
+        )}  ${isClicked} pointer person-box`}
+        onClick={onPersonClick}
       >
-        <div className="ui white">{props.name}</div>
-      </button>
+        <div className="ui white">{person.title}</div>
+        <div>{person.description}</div>
+      </div>
     </div>
   );
 };
 
-const chooseColor = (color) => {
-  switch (color) {
-    case "red":
-      return "red";
-    case "black":
-      return "black";
-    case "brown":
-      return "brown";
-    case "split":
-      return "ui button gradient";
-    default:
-      throw new Error("Color does not exist");
-  }
+const chooseColor = (person) => {
+  if (!person.canForce && person.canBlackmail) return "red";
+  else if (person.canForce && !person.canBlackmail) return "black";
+  else if (!person.canForce && !person.canBlackmail) return "gradient";
+  else return "brown";
 };
 
-const mapStateToProps = (state) => {
-  return { peopleStatus: state.peopleStatus };
+const mapStateTo= (state) => {
+  return { people: state.people };
 };
 
-export default connect(mapStateToProps, { selectPerson })(Person);
+export default connect(mapStateTo, { selectPerson })(Person);

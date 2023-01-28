@@ -7,22 +7,22 @@ const BribeBoard = () => {
       <h2 className="">Select Your Bribes!</h2>
       <div className="ui container grid">
         <div className="ui row">
-          <Person name="General" color="red" />
-          <Person name="Captain" color="red" />
-          <Person name="Innkeeper" color="black" />
-          <Person name="Magistrate" color="black" />
+          <Person role="general"/>
+          <Person role="captain"/>
+          <Person role="innkeeper" />
+          <Person role="magistrate" />
         </div>
         <div className="ui row">
-          <Person name="Priest" color="brown" />
-          <Person name="Aristocrat" color="brown" />
-          <Person name="Merchant" color="brown" />
-          <Person name="Printer" color="brown" />
+          <Person role="priest" />
+          <Person role="aristocrat" />
+          <Person role="merchant" />
+          <Person role="printer" />
         </div>
         <div className="ui row">
-          <Person name="Rogue" color="split" />
-          <Person name="Spy" color="black" />
-          <Person name="Apothecary" color="red" />
-          <Person name="Mercenary" color="split" />
+          <Person role="rogue" />
+          <Person role="spy" />
+          <Person role="apothecary"/>
+          <Person role="mercenary" />
         </div>
       </div>
     </div>

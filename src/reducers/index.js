@@ -4,7 +4,7 @@ import playerReducer from './playerReducer';
 import enemyReducer from './enemyReducer';
 
 export default combineReducers({
-  peopleStatus: personReducer,
+  people: personReducer,
   player: playerReducer,
   enemy: enemyReducer
 });
