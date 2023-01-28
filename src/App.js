@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import TitleScreen from "./components/TitleScreen";
 import Game from "./components/Game";
+import Rules from "./components/Rules";
 import "./App.css";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<TitleScreen />} />
           <Route path="/game" element={<Game />} />
+          <Route path="/rules" element={<Rules />} />
         </Routes>
       </BrowserRouter>
     </div>

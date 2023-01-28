@@ -25,16 +25,6 @@ const BribeBoard = () => {
           <Person name="Mercenary" color="split" />
         </div>
       </div>
-      <h2 className="">Round: 1</h2>
-      <h2 className="">Support: 0</h2>
-      <br />
-      <div className="ui container grid">
-        <div className="ui row">
-          <h2 className="column five wide">Force: 0</h2>
-          <h2 className="column five wide">Blackmail: 0</h2>
-          <h2 className="column five wide">Gold: 5</h2>
-        </div>
-      </div>
     </div>
   );
 };

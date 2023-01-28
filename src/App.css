@@ -11,6 +11,36 @@ body {
   margin: auto;
 }
 
+.enemy-location {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.enemy-card {
+  border: 5px solid;
+  padding: 10px;
+  background: white;
+  width: 15%;
+}
+
+.player-location {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.player-card {
+  border: 5px solid;
+  padding: 10px;
+  background: white;
+  width: 15%;
+}
+
 .revolution-banner {
   position: absolute;
   transform: translate(-50%, -50%);
