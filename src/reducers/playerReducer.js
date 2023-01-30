@@ -8,23 +8,9 @@ const INITIAL_STATE = {
 const playerReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "BRIBE_PERSON":
-      if (action.payload.currency === "force") {
-        return { ...state, force: state.force - 1 };
-      } else if (action.payload.currency === "blackmail") {
-        return { ...state, blackmail: state.blackmail - 1 };
-      } else if (action.payload.currency === "gold") {
-        return { ...state, gold: state.gold - 1 };
-      }
-      throw Error("currency passed was not valid");
+      return {...state, [action.payload.currency]: state[action.payload.currency] - 1 }
     case "UNBRIBE_PERSON":
-      if (action.payload.currency === "force") {
-        return { ...state, force: state.force + 1 };
-      } else if (action.payload.currency === "blackmail") {
-        return { ...state, blackmail: state.blackmail + 1 };
-      } else if (action.payload.currency === "gold") {
-        return { ...state, gold: state.gold + 1 };
-      }
-      throw Error("currency passed was not valid");
+      return {...state, [action.payload.currency]: state[action.payload.currency] + 1 }
     default:
       return state;
   }
