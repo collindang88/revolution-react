@@ -9,19 +9,19 @@ const Person = ({ role, people, selectPerson }) => {
     : "unclicked";
 
   const onPersonClick = () => {
-    selectPerson(person);
+    selectPerson(role);
   };
 
   return (
-    <div className="column four wide">
+    <div className="col-sm my-1">
       <div
         className={`${chooseColor(
           person
-        )}  ${isClicked} pointer person-box`}
+        )}  ${isClicked} pointer height-100 text-center`}
         onClick={onPersonClick}
       >
-        <div className="ui white">{person.title}</div>
-        <div>{person.description}</div>
+        <div className="text-white">{person.title}</div>
+        <div className="text-white">{person.description}</div>
       </div>
     </div>
   );

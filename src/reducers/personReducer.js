@@ -102,6 +102,8 @@ const INITIAL_STATE = {
 const personReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case "SELECT_PERSON":
+      console.log(action.payload)
+      console.log(state[action.payload])
       state[action.payload].clicked = !state[action.payload].clicked;
       return _.cloneDeep(state);
     default:

@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 
 const EnemyCard = (props) => {
   return (
-    <div className="enemy-location enemy-card">
-      <div className="center aligned content">
+    <div className="position-absolute b-0 r-0 me-2 mb-2 border-5-px p-2 w-15">
+      <div className="text-center">
         <h1>Enemy</h1>
         <div>Force: {props.enemy.force}</div>
         <div>Blackmail: {props.enemy.blackmail}</div>

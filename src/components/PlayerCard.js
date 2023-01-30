@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 
 const PlayerCard = (props) => {
   return (
-    <div className="player-location player-card">
-      <div className="center aligned content">
+    <div className="position-absolute b-0 l-0 ms-2 mb-2 border-5-px p-2 w-15">
+      <div className="text-center">
         <h1>Player (You)</h1>
         <div>Force: {props.player.force}</div>
         <div>Blackmail: {props.player.blackmail}</div>
