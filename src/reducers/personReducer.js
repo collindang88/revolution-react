@@ -112,7 +112,6 @@ const INITIAL_STATE = {
 };
 
 const personReducer = (state = INITIAL_STATE, action) => {
-  console.log('inside person reducer')
   let person;
   switch (action.type) {
     case "BRIBE_PERSON":

@@ -1,12 +1,11 @@
 const INITIAL_STATE = {
   support: 0,
-  force: 0,
-  blackmail: 0,
-  gold: 5,
+  force: 1,
+  blackmail: 1,
+  gold: 3,
 };
 
 const playerReducer = (state = INITIAL_STATE, action) => {
-  console.log('inside player reducer')
   switch (action.type) {
     case "BRIBE_PERSON":
       if (action.payload.currency === "force") {

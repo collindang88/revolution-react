@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { bribePerson, unbribePerson } from "../actions";
 
-const Person = ({ personString, people, player, bribePerson }) => {
+const Person = ({ personString, people, player, bribePerson, unbribePerson }) => {
   const person = people[personString];
   const isClicked = person.clicked ? "clicked" : "unclicked";
 
@@ -10,14 +10,12 @@ const Person = ({ personString, people, player, bribePerson }) => {
     if (person.clicked) {
       const currency = person.currency;
       unbribePerson(personString, currency);
-      console.log('unbribing')
       return;
     }
 
     if (!playerHasEnoughCurrencyForBribe(player, person)) return;
     const currency = chooseCurrency(player, person);
     bribePerson(personString, currency);
-    console.log('bribing')
   };
 
   return (
@@ -30,10 +28,25 @@ const Person = ({ personString, people, player, bribePerson }) => {
       >
         <div className="text-white h5">{person.title}</div>
         <div className="text-white">{person.description}</div>
+        <div className="text-white">{showCurrency(person.currency)}</div>
       </div>
     </div>
   );
 };
+
+const showCurrency = currency => {
+  switch (currency) {
+    case 'force':
+      return '👊';
+    case 'blackmail':
+      return '📧';
+    case 'gold':
+      return '🏅';
+    default:
+      return '';
+  }
+}
+
 
 const chooseCurrency = (player, person) => {
   if (person.canForce && player.force > 0) return "force";

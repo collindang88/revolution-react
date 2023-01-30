@@ -9,7 +9,6 @@ export const bribePerson = (person, currency) => {
 };
 
 export const unbribePerson = (person, currency) => {
-  console.log('sending out unbribe action')
   return {
     type: 'UNBRIBE_PERSON',
     payload: {
